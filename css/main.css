@@ -1,0 +1,189 @@
+/* Main CSS for DoseLuru */
+
+:root {
+    --doseluru-primary: #F4D03F;
+    --doseluru-secondary: #8D6E63;
+    --doseluru-text-primary: #5D4037;
+    --doseluru-background: #FFF8E1;
+    --doseluru-accent: #FFB74D;
+    --doseluru-success: #66BB6A;
+    --doseluru-error: #EF5350;
+    --doseluru-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --doseluru-transition: all 0.3s ease;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--doseluru-text-primary);
+    line-height: 1.6;
+}
+
+/* Loading Animation */
+.doseluru-loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--doseluru-primary);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: doseluru-spin 1s linear infinite;
+}
+
+@keyframes doseluru-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Navigation */
+.doseluru-nav {
+    background-color: var(--doseluru-background);
+    box-shadow: var(--doseluru-shadow);
+    transition: var(--doseluru-transition);
+}
+
+.doseluru-nav-link {
+    color: var(--doseluru-text-primary);
+    font-weight: 500;
+    transition: var(--doseluru-transition);
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.doseluru-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--doseluru-primary);
+    transition: var(--doseluru-transition);
+    transform: translateX(-50%);
+}
+
+.doseluru-nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.doseluru-hero {
+    background: linear-gradient(135deg, var(--doseluru-background), #FFFFFF);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.doseluru-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.doseluru-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.doseluru-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.doseluru-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--doseluru-shadow);
+    transition: var(--doseluru-transition);
+}
+
+.doseluru-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.doseluru-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.doseluru-card-content {
+    padding: 1.5rem;
+}
+
+/* Ratings */
+.doseluru-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.doseluru-star {
+    color: var(--doseluru-primary);
+}
+
+/* Buttons */
+.doseluru-button-primary {
+    background-color: var(--doseluru-primary);
+    color: var(--doseluru-text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: var(--doseluru-transition);
+}
+
+.doseluru-button-primary:hover {
+    background-color: var(--doseluru-accent);
+    transform: translateY(-2px);
+}
+
+.doseluru-button-secondary {
+    background-color: transparent;
+    color: var(--doseluru-text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: 2px solid var(--doseluru-primary);
+    transition: var(--doseluru-transition);
+}
+
+.doseluru-button-secondary:hover {
+    background-color: var(--doseluru-primary);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.doseluru-footer {
+    background-color: var(--doseluru-secondary);
+    color: white;
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .doseluru-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .doseluru-nav {
+        padding: 1rem;
+    }
+}
+
+/* Animations */
+[data-aos] {
+    opacity: 0;
+    transition: var(--doseluru-transition);
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}

@@ -1,0 +1,68 @@
+{
+    "restaurants": [
+      {
+        "id": "ctr-01",
+        "name": "CTR",
+        "area": "Malleshwaram",
+        "description": "Famous for their benne dosa and authentic South Indian breakfast. A legendary establishment that has been serving Bangalore since 1920.",
+        "ratings": {
+          "taste": 4.8,
+          "ambience": 3.5,
+          "parking": 2.5,
+          "service": 4.0,
+          "value": 4.5
+        },
+        "specialties": ["Benne Dosa", "Filter Coffee", "Idli Vada"],
+        "mustTry": "Benne Masala Dosa",
+        "priceRange": "₹₹",
+        "imagePath": "/api/placeholder/400/300",
+        "address": "7th Cross, Margosa Road, Malleshwaram",
+        "openHours": "6:30 AM - 12:30 PM, 4:00 PM - 8:00 PM",
+        "phoneNumber": "+91-80-23312233",
+        "coordinates": {
+          "lat": 12.9955,
+          "lng": 77.5707
+        }
+      },
+      {
+        "id": "vidyarthi-01",
+        "name": "Vidyarthi Bhavan",
+        "area": "Basavanagudi",
+        "description": "Historic restaurant known for its crispy masala dosas and weekend crowds. A true Bangalore institution since 1943.",
+        "ratings": {
+          "taste": 4.9,
+          "ambience": 3.8,
+          "parking": 2.0,
+          "service": 4.2,
+          "value": 4.7
+        },
+        "specialties": ["Masala Dosa", "Filter Coffee", "Kesari Bath"],
+        "mustTry": "Special Masala Dosa",
+        "priceRange": "₹₹",
+        "imagePath": "/api/placeholder/400/300",
+        "address": "32, Gandhi Bazaar Main Road",
+        "openHours": "6:30 AM - 11:30 AM, 2:00 PM - 8:00 PM",
+        "phoneNumber": "+91-80-26677588",
+        "coordinates": {
+          "lat": 12.9419,
+          "lng": 77.5712
+        }
+      }
+    ],
+    "metadata": {
+      "lastUpdated": "2024-02-12",
+      "totalRestaurants": 2,
+      "ratingCriteria": {
+        "taste": "Quality and authenticity of food",
+        "ambience": "Restaurant atmosphere and comfort",
+        "parking": "Availability and convenience of parking",
+        "service": "Staff behavior and service speed",
+        "value": "Price to quality ratio"
+      },
+      "priceRangeGuide": {
+        "₹": "Under ₹100 per person",
+        "₹₹": "₹100-300 per person",
+        "₹₹₹": "Above ₹300 per person"
+      }
+    }
+  }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the best dosa joints in Bangalore with authentic ratings and reviews">
+    <meta name="keywords" content="dosa, bangalore, food, restaurants, reviews, ratings">
+    <meta name="theme-color" content="#F4D03F">
+    
+    <title>Doseluru - Bangalore's Ultimate Dosa Guide</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/images/dose.jpg" as="image">
+</head>
+<body class="bg-gray-50">
+    <!-- Loading Overlay -->
+    <div id="doseluru-loading-overlay" class="fixed inset-0 bg-white bg-opacity-90 z-50 flex items-center justify-center">
+        <div class="doseluru-loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="doseluru-nav sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="assets/images/dose.jpg" alt="Doseluru Logo" class="h-12 w-12 rounded-full shadow-lg">
+                    <span class="ml-3 text-2xl font-bold doseluru-text-primary">Doseluru</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="doseluru-nav-link">Home</a>
+                    <a href="#top-rated" class="doseluru-nav-link">Top Rated</a>
+                    <a href="#latest-reviews" class="doseluru-nav-link">Latest Reviews</a>
+                    <a href="#about" class="doseluru-nav-link">About</a>
+                </div>
+                <button class="md:hidden doseluru-mobile-menu-button">
+                    <span class="sr-only">Open menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="doseluru-mobile-menu hidden md:hidden">
+        <a href="#home" class="block px-4 py-2">Home</a>
+        <a href="#top-rated" class="block px-4 py-2">Top Rated</a>
+        <a href="#latest-reviews" class="block px-4 py-2">Latest Reviews</a>
+        <a href="#about" class="block px-4 py-2">About</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="doseluru-hero relative overflow-hidden" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20">
+                    <div class="text-center lg:text-left">
+                        <h1 class="doseluru-hero-title">
+                            <span class="block">Discover Bangalore's</span>
+                            <span class="block text-primary">Best Dosas</span>
+                        </h1>
+                        <p class="doseluru-hero-subtitle">
+                            Authentic reviews, detailed ratings, and everything you need to know about the best dosa joints in namma Bengaluru!
+                        </p>
+                        <div class="mt-8 flex justify-center lg:justify-start gap-4">
+                            <a href="#top-rated" class="doseluru-button-primary">Explore Top Rated</a>
+                            <a href="#latest-reviews" class="doseluru-button-secondary">Latest Reviews</a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="doseluru-filters" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <label for="area-filter" class="font-medium">Filter by Area:</label>
+                    <select id="area-filter" class="doseluru-select">
+                        <option value="all">All Areas</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-4">
+                    <label for="sort-by" class="font-medium">Sort by:</label>
+                    <select id="sort-by" class="doseluru-select">
+                        <option value="rating">Rating</option>
+                        <option value="name">Name</option>
+                        <option value="price">Price</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Cards Section -->
+    <section id="top-rated" class="doseluru-restaurants" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <h2 class="doseluru-section-title">Top Rated Dosa Places</h2>
+            <div id="doseluru-restaurant-grid" class="doseluru-grid">
+                <!-- Cards will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="doseluru-footer">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Doseluru</h3>
+                    <p class="text-sm">Exploring Bangalore's Dosa Scene</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/doseluru" target="_blank" rel="noopener noreferrer" 
+                       class="doseluru-social-link" aria-label="Follow us on Instagram">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils/errorHandler.js"></script>
+    <script src="js/utils/dataFormatter.js"></script>
+    <script src="js/api/restaurantService.js"></script>
+    <script src="js/components/RatingCalculator.js"></script>
+    <script src="js/components/Card.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
