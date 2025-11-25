@@ -35,11 +35,21 @@
                     <img src="assets/images/dose.jpg" alt="Doseluru Logo" class="h-12 w-12 rounded-full shadow-lg">
                     <span class="ml-3 text-2xl font-bold doseluru-text-primary">Doseluru</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="#home" class="doseluru-nav-link">Home</a>
                     <a href="#top-rated" class="doseluru-nav-link">Top Rated</a>
-                    <a href="#latest-reviews" class="doseluru-nav-link">Latest Reviews</a>
+                    <a href="#latest-reviews" class="doseluru-nav-link">Reviews</a>
                     <a href="#about" class="doseluru-nav-link">About</a>
+
+                    <!-- City Dropdown -->
+                    <div class="relative">
+                        <select id="nav-city-selector" class="doseluru-nav-city-select">
+                            <option value="bengaluru">🏙️ Bengaluru</option>
+                            <option value="chennai">🏛️ Chennai</option>
+                            <option value="mysore">👑 Mysuru</option>
+                            <option value="hyderabad">💎 Hyderabad</option>
+                        </select>
+                    </div>
                 </div>
                 <button class="md:hidden doseluru-mobile-menu-button">
                     <span class="sr-only">Open menu</span>
@@ -55,29 +65,241 @@
     <div class="doseluru-mobile-menu hidden md:hidden">
         <a href="#home" class="block px-4 py-2">Home</a>
         <a href="#top-rated" class="block px-4 py-2">Top Rated</a>
-        <a href="#latest-reviews" class="block px-4 py-2">Latest Reviews</a>
+        <a href="#latest-reviews" class="block px-4 py-2">Reviews</a>
         <a href="#about" class="block px-4 py-2">About</a>
+        <div class="px-4 py-2">
+            <select id="mobile-city-selector" class="doseluru-mobile-city-select w-full">
+                <option value="bengaluru">🏙️ Bengaluru</option>
+                <option value="chennai">🏛️ Chennai</option>
+                <option value="mysore">👑 Mysuru</option>
+                <option value="hyderabad">💎 Hyderabad</option>
+            </select>
+        </div>
     </div>
 
     <!-- Hero Section -->
     <section id="home" class="doseluru-hero relative overflow-hidden" data-aos="fade-up">
-        <div class="max-w-7xl mx-auto">
-            <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
-                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20">
-                    <div class="text-center lg:text-left">
-                        <h1 class="doseluru-hero-title">
-                            <span class="block">Discover Bangalore's</span>
-                            <span class="block text-primary">Best Dosas</span>
-                        </h1>
-                        <p class="doseluru-hero-subtitle">
-                            Authentic reviews, detailed ratings, and everything you need to know about the best dosa joints in namma Bengaluru!
-                        </p>
-                        <div class="mt-8 flex justify-center lg:justify-start gap-4">
-                            <a href="#top-rated" class="doseluru-button-primary">Explore Top Rated</a>
-                            <a href="#latest-reviews" class="doseluru-button-secondary">Latest Reviews</a>
+        <!-- Decorative Elements -->
+        <div class="doseluru-hero-decorations">
+            <div class="deco-circle deco-1"></div>
+            <div class="deco-circle deco-2"></div>
+            <div class="deco-circle deco-3"></div>
+            <div class="deco-dosa deco-4">🥘</div>
+            <div class="deco-dosa deco-5">🍽️</div>
+            <div class="deco-dosa deco-6">🌶️</div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh] py-12">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left z-10">
+                    <div class="inline-block px-4 py-2 bg-yellow-100 rounded-full text-sm font-semibold text-yellow-800 mb-6">
+                        🏆 India's #1 Dosa Discovery Platform
+                    </div>
+                    <h1 class="doseluru-hero-title">
+                        <span class="block">Discover India's</span>
+                        <span class="block doseluru-gradient-text">Best Dosas</span>
+                    </h1>
+                    <p class="doseluru-hero-subtitle">
+                        Your ultimate guide to finding the perfect crispy, golden dosa. Curated reviews, detailed ratings across 8 parameters, and insider tips from dosa enthusiasts across 4 major cities.
+                    </p>
+
+                    <!-- Stats Row -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-6 mt-8 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-600">32+</div>
+                            <div class="text-sm text-gray-600">Restaurants</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-600">4</div>
+                            <div class="text-sm text-gray-600">Cities</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-600">8</div>
+                            <div class="text-sm text-gray-600">Rating Criteria</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-600">100%</div>
+                            <div class="text-sm text-gray-600">Curated</div>
                         </div>
                     </div>
-                </main>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                        <a href="#top-rated" class="doseluru-button-primary">
+                            <span>🔍 Explore Top Rated</span>
+                        </a>
+                        <a href="#latest-reviews" class="doseluru-button-secondary">
+                            <span>📝 Latest Reviews</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="relative hidden lg:block">
+                    <div class="doseluru-hero-visual">
+                        <div class="hero-main-image">
+                            <img src="assets/images/dose.jpg" alt="Delicious Dosa" class="w-full h-auto rounded-2xl shadow-2xl">
+                        </div>
+                        <!-- Floating Cards -->
+                        <div class="hero-floating-card card-1">
+                            <span class="text-2xl">⭐</span>
+                            <div>
+                                <div class="font-bold text-sm">4.8 Rating</div>
+                                <div class="text-xs text-gray-500">Average Score</div>
+                            </div>
+                        </div>
+                        <div class="hero-floating-card card-2">
+                            <span class="text-2xl">🏛️</span>
+                            <div>
+                                <div class="font-bold text-sm">Heritage</div>
+                                <div class="text-xs text-gray-500">Since 1924</div>
+                            </div>
+                        </div>
+                        <div class="hero-floating-card card-3">
+                            <span class="text-2xl">🔥</span>
+                            <div>
+                                <div class="font-bold text-sm">Hot & Crispy</div>
+                                <div class="text-xs text-gray-500">Fresh Served</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Selector Section -->
+    <section class="doseluru-city-selector" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">🌆 Explore Dosas Across India</h2>
+                <p class="text-gray-600">Select your city to discover the best dosa places</p>
+            </div>
+
+            <div class="doseluru-city-grid">
+                <!-- Bengaluru -->
+                <div class="doseluru-city-card active" data-city="bengaluru">
+                    <div class="city-icon">🏙️</div>
+                    <h3 class="city-name">Bengaluru</h3>
+                    <p class="city-tagline">Where tradition meets innovation</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">12 Places</span>
+                        <span class="stat-badge">🔥 Default</span>
+                    </div>
+                </div>
+
+                <!-- Chennai -->
+                <div class="doseluru-city-card" data-city="chennai">
+                    <div class="city-icon">🏛️</div>
+                    <h3 class="city-name">Chennai</h3>
+                    <p class="city-tagline">Where dosa tradition was perfected</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">8 Places</span>
+                        <span class="stat-badge">⭐ Authentic</span>
+                    </div>
+                </div>
+
+                <!-- Mysore -->
+                <div class="doseluru-city-card" data-city="mysore">
+                    <div class="city-icon">👑</div>
+                    <h3 class="city-name">Mysuru</h3>
+                    <p class="city-tagline">Birthplace of Mysore Masala Dosa</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">6 Places</span>
+                        <span class="stat-badge">👑 Royal</span>
+                    </div>
+                </div>
+
+                <!-- Hyderabad -->
+                <div class="doseluru-city-card" data-city="hyderabad">
+                    <div class="city-icon">💎</div>
+                    <h3 class="city-name">Hyderabad</h3>
+                    <p class="city-tagline">Deccan's dosa destination</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">6 Places</span>
+                        <span class="stat-badge">💎 Unique</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City Info Banner -->
+            <div id="city-info-banner" class="doseluru-city-banner mt-6">
+                <div class="banner-content">
+                    <div class="banner-icon">🏙️</div>
+                    <div class="banner-text">
+                        <h3 id="current-city-name">Bengaluru, Karnataka</h3>
+                        <p id="current-city-description">The Silicon Valley of India is also the capital of dosa innovation. From legendary benne dosas to modern fusion varieties.</p>
+                        <p class="banner-famous-for"><strong>Famous for:</strong> <span id="current-city-famous">Benne Dosa, Rava Dosa, Set Dosa</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Selector Section -->
+    <section class="doseluru-city-selector" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">🌆 Explore Dosas Across India</h2>
+                <p class="text-gray-600">Select your city to discover the best dosa places</p>
+            </div>
+
+            <div class="doseluru-city-grid">
+                <!-- Bengaluru -->
+                <div class="doseluru-city-card active" data-city="bengaluru">
+                    <div class="city-icon">🏙️</div>
+                    <h3 class="city-name">Bengaluru</h3>
+                    <p class="city-tagline">Where tradition meets innovation</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">12 Places</span>
+                        <span class="stat-badge">🔥 Default</span>
+                    </div>
+                </div>
+
+                <!-- Chennai -->
+                <div class="doseluru-city-card" data-city="chennai">
+                    <div class="city-icon">🏛️</div>
+                    <h3 class="city-name">Chennai</h3>
+                    <p class="city-tagline">Where dosa tradition was perfected</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">8 Places</span>
+                        <span class="stat-badge">⭐ Authentic</span>
+                    </div>
+                </div>
+
+                <!-- Mysore -->
+                <div class="doseluru-city-card" data-city="mysore">
+                    <div class="city-icon">👑</div>
+                    <h3 class="city-name">Mysuru</h3>
+                    <p class="city-tagline">Birthplace of Mysore Masala Dosa</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">6 Places</span>
+                        <span class="stat-badge">👑 Royal</span>
+                    </div>
+                </div>
+
+                <!-- Hyderabad -->
+                <div class="doseluru-city-card" data-city="hyderabad">
+                    <div class="city-icon">💎</div>
+                    <h3 class="city-name">Hyderabad</h3>
+                    <p class="city-tagline">Deccan's dosa destination</p>
+                    <div class="city-stats">
+                        <span class="stat-badge">6 Places</span>
+                        <span class="stat-badge">💎 Unique</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City Info Banner -->
+            <div id="city-info-banner" class="doseluru-city-banner mt-6">
+                <div class="banner-content">
+                    <div class="banner-icon">🏙️</div>
+                    <div class="banner-text">
+                        <h3 id="current-city-name">Bengaluru, Karnataka</h3>
+                        <p id="current-city-description">The Silicon Valley of India is also the capital of dosa innovation. From legendary benne dosas to modern fusion varieties.</p>
+                        <p class="banner-famous-for"><strong>Famous for:</strong> <span id="current-city-famous">Benne Dosa, Rava Dosa, Set Dosa</span></p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -85,20 +307,98 @@
     <!-- Filters Section -->
     <section class="doseluru-filters" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4 py-6">
-            <div class="flex flex-wrap gap-4 items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <label for="area-filter" class="font-medium">Filter by Area:</label>
-                    <select id="area-filter" class="doseluru-select">
-                        <option value="all">All Areas</option>
-                    </select>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-bold mb-4">🔍 Smart Filters - Find Your Perfect Dosa</h3>
+
+                <!-- Main Filters Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+                    <div>
+                        <label for="area-filter" class="block text-sm font-medium mb-2">📍 Area</label>
+                        <select id="area-filter" class="doseluru-select w-full">
+                            <option value="all">All Areas</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="price-filter" class="block text-sm font-medium mb-2">💰 Price Range</label>
+                        <select id="price-filter" class="doseluru-select w-full">
+                            <option value="all">All Prices</option>
+                            <option value="budget">Budget (Under ₹100)</option>
+                            <option value="mid">Mid-Range (₹100-200)</option>
+                            <option value="premium">Premium (Above ₹200)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="dietary-filter" class="block text-sm font-medium mb-2">🥬 Dietary</label>
+                        <select id="dietary-filter" class="doseluru-select w-full">
+                            <option value="all">All Options</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan-options">Vegan Options</option>
+                            <option value="jain">Jain</option>
+                            <option value="non-veg">Non-Veg</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="sort-by" class="block text-sm font-medium mb-2">⬇️ Sort By</label>
+                        <select id="sort-by" class="doseluru-select w-full">
+                            <option value="rating">⭐ Rating (High to Low)</option>
+                            <option value="name">🔤 Name (A-Z)</option>
+                            <option value="price-low">💵 Price (Low to High)</option>
+                            <option value="price-high">💸 Price (High to Low)</option>
+                            <option value="wait-time">⚡ Wait Time (Shortest)</option>
+                            <option value="reviews">📝 Most Reviewed</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <label for="sort-by" class="font-medium">Sort by:</label>
-                    <select id="sort-by" class="doseluru-select">
-                        <option value="rating">Rating</option>
-                        <option value="name">Name</option>
-                        <option value="price">Price</option>
-                    </select>
+
+                <!-- Quick Filters Row -->
+                <div class="border-t pt-4">
+                    <p class="text-sm font-medium mb-3">Quick Filters:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <label class="doseluru-checkbox-label">
+                            <input type="checkbox" id="filter-heritage" class="mr-2">
+                            <span>🏛️ Heritage Only</span>
+                        </label>
+
+                        <label class="doseluru-checkbox-label">
+                            <input type="checkbox" id="filter-open-now" class="mr-2">
+                            <span>🟢 Open Now</span>
+                        </label>
+
+                        <label class="doseluru-checkbox-label">
+                            <input type="checkbox" id="filter-parking" class="mr-2">
+                            <span>🅿️ Parking Available</span>
+                        </label>
+
+                        <label class="doseluru-checkbox-label">
+                            <input type="checkbox" id="filter-ac" class="mr-2">
+                            <span>❄️ Air Conditioned</span>
+                        </label>
+
+                        <label class="doseluru-checkbox-label">
+                            <input type="checkbox" id="filter-delivery" class="mr-2">
+                            <span>🚚 Delivery Available</span>
+                        </label>
+
+                        <label class="doseluru-checkbox-label">
+                            <input type="checkbox" id="filter-quick" class="mr-2">
+                            <span>⚡ Quick Service</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Reset Button -->
+                <div class="mt-4 flex justify-end">
+                    <button id="reset-filters" class="doseluru-button-reset">
+                        🔄 Reset All Filters
+                    </button>
+                </div>
+
+                <!-- Results Count -->
+                <div class="mt-4 pt-4 border-t">
+                    <p id="results-count" class="text-sm text-gray-600 font-medium"></p>
                 </div>
             </div>
         </div>
@@ -110,6 +410,240 @@
             <h2 class="doseluru-section-title">Top Rated Dosa Places</h2>
             <div id="doseluru-restaurant-grid" class="doseluru-grid">
                 <!-- Cards will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Reviews Section -->
+    <section id="latest-reviews" class="doseluru-reviews-section" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <h2 class="doseluru-section-title">Latest Reviews & Tips</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+                Insider tips and recent experiences from our community of dosa enthusiasts
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review Card 1 -->
+                <div class="doseluru-review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RK</div>
+                        <div>
+                            <div class="reviewer-name">Rajesh Kumar</div>
+                            <div class="review-date">2 days ago</div>
+                        </div>
+                        <div class="review-rating">⭐ 4.9</div>
+                    </div>
+                    <div class="review-restaurant">CTR - Malleshwaram</div>
+                    <p class="review-text">
+                        "The benne dosa here is absolutely divine! Crispy on the outside, soft inside, and the butter just melts in your mouth. Go early to avoid the queue. Pro tip: Ask for extra chutney!"
+                    </p>
+                    <div class="review-tags">
+                        <span class="review-tag">🥇 Must Try</span>
+                        <span class="review-tag">🧈 Butter Lover</span>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="doseluru-review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">PS</div>
+                        <div>
+                            <div class="reviewer-name">Priya Sharma</div>
+                            <div class="review-date">5 days ago</div>
+                        </div>
+                        <div class="review-rating">⭐ 4.8</div>
+                    </div>
+                    <div class="review-restaurant">Vidyarthi Bhavan - Basavanagudi</div>
+                    <p class="review-text">
+                        "A heritage gem! The masala dosa with their signature red chutney is legendary. Been coming here since childhood. The ambiance takes you back in time. Weekend mornings are magical here."
+                    </p>
+                    <div class="review-tags">
+                        <span class="review-tag">🏛️ Heritage</span>
+                        <span class="review-tag">👨‍👩‍👧 Family</span>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="doseluru-review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">AM</div>
+                        <div>
+                            <div class="reviewer-name">Arun Menon</div>
+                            <div class="review-date">1 week ago</div>
+                        </div>
+                        <div class="review-rating">⭐ 4.7</div>
+                    </div>
+                    <div class="review-restaurant">MTR - Lalbagh</div>
+                    <p class="review-text">
+                        "The rava idli and masala dosa combo is breakfast perfection. Service is quick for such a popular place. Their filter coffee is the perfect ending. Worth every minute of waiting!"
+                    </p>
+                    <div class="review-tags">
+                        <span class="review-tag">☕ Coffee</span>
+                        <span class="review-tag">⚡ Quick</span>
+                    </div>
+                </div>
+
+                <!-- Review Card 4 -->
+                <div class="doseluru-review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">SN</div>
+                        <div>
+                            <div class="reviewer-name">Sneha Nair</div>
+                            <div class="review-date">1 week ago</div>
+                        </div>
+                        <div class="review-rating">⭐ 4.6</div>
+                    </div>
+                    <div class="review-restaurant">Murugan Idli - Chennai</div>
+                    <p class="review-text">
+                        "Tried their special ghee roast dosa - absolutely spectacular! The coconut chutney is fresh and the sambar has that authentic Chennai taste. Clean place with friendly staff."
+                    </p>
+                    <div class="review-tags">
+                        <span class="review-tag">🥥 Fresh</span>
+                        <span class="review-tag">✨ Clean</span>
+                    </div>
+                </div>
+
+                <!-- Review Card 5 -->
+                <div class="doseluru-review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">VR</div>
+                        <div>
+                            <div class="reviewer-name">Vikram Reddy</div>
+                            <div class="review-date">2 weeks ago</div>
+                        </div>
+                        <div class="review-rating">⭐ 4.8</div>
+                    </div>
+                    <div class="review-restaurant">Vinayaka Mylari - Mysuru</div>
+                    <p class="review-text">
+                        "The original Mysore dosa experience! Paper thin, crispy, and served with that special Mylari-style butter. Simple menu but everything is perfect. Cash only!"
+                    </p>
+                    <div class="review-tags">
+                        <span class="review-tag">👑 Original</span>
+                        <span class="review-tag">💵 Cash Only</span>
+                    </div>
+                </div>
+
+                <!-- Review Card 6 -->
+                <div class="doseluru-review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">KD</div>
+                        <div>
+                            <div class="reviewer-name">Kavitha Devi</div>
+                            <div class="review-date">2 weeks ago</div>
+                        </div>
+                        <div class="review-rating">⭐ 4.5</div>
+                    </div>
+                    <div class="review-restaurant">Ram Ki Bandi - Hyderabad</div>
+                    <p class="review-text">
+                        "Street-side perfection! Their pesarattu (green gram dosa) is a must-try. Opens late night and the vibe is amazing. Authentic Hyderabadi street food experience at its best!"
+                    </p>
+                    <div class="review-tags">
+                        <span class="review-tag">🌙 Night</span>
+                        <span class="review-tag">🛵 Street</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="doseluru-about-section" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Doseluru</h2>
+                    <p class="text-gray-600 mb-4">
+                        Doseluru was born from a simple passion - the love for the perfect dosa. We realized that finding a truly great dosa spot was often a matter of luck or local knowledge.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our mission is to be India's most comprehensive and trustworthy dosa discovery platform. We personally visit, taste, and rate every restaurant using our detailed 8-parameter system.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        From the legendary heritage spots serving dosas for generations to the modern fusion kitchens pushing boundaries, we cover it all. Because every dosa lover deserves to find their perfect crispy, golden dosa.
+                    </p>
+
+                    <!-- Features List -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">✅</span>
+                            <span class="text-sm font-medium">Personally Verified</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">📊</span>
+                            <span class="text-sm font-medium">8-Point Ratings</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">🗺️</span>
+                            <span class="text-sm font-medium">4 Cities Covered</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">🆓</span>
+                            <span class="text-sm font-medium">Always Free</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Stats & Info -->
+                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Our Rating System</h3>
+
+                    <div class="space-y-4">
+                        <div class="rating-criteria">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">🥘 Taste & Flavor</span>
+                                <span class="text-sm text-yellow-600">Core criteria</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="rating-criteria">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">🧈 Chutney & Sambar</span>
+                                <span class="text-sm text-yellow-600">Essential combo</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="rating-criteria">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">🏠 Ambiance</span>
+                                <span class="text-sm text-yellow-600">Experience</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <div class="rating-criteria">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">⚡ Service Speed</span>
+                                <span class="text-sm text-yellow-600">Efficiency</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="rating-criteria">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">💰 Value for Money</span>
+                                <span class="text-sm text-yellow-600">Worth it?</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-500 mt-6">
+                        Plus: Cleanliness, Authenticity & Variety ratings
+                    </p>
+                </div>
             </div>
         </div>
     </section>

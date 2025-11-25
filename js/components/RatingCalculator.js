@@ -1,16 +1,27 @@
 class RatingCalculator {
     static WEIGHTS = {
-        taste: 0.4,
-        ambience: 0.15,
-        parking: 0.1,
-        service: 0.2,
-        value: 0.15
+        taste: 0.25,
+        ambience: 0.08,
+        parking: 0.05,
+        service: 0.12,
+        value: 0.10,
+        crispiness: 0.15,
+        chutney: 0.15,
+        sambar: 0.10
     };
 
     static calculateOverall(ratings) {
-        return Object.entries(ratings).reduce((sum, [key, value]) => {
-            return sum + (value * this.WEIGHTS[key]);
-        }, 0);
+        let totalWeight = 0;
+        let weightedSum = 0;
+
+        Object.entries(ratings).forEach(([key, value]) => {
+            const weight = this.WEIGHTS[key] || 0;
+            weightedSum += value * weight;
+            totalWeight += weight;
+        });
+
+        // Normalize to 5.0 scale if weights don't add to 1.0
+        return totalWeight > 0 ? weightedSum / totalWeight * (totalWeight <= 1 ? 1/totalWeight : 1) : 0;
     }
 
     static generateStarRating(rating) {

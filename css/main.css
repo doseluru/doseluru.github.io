@@ -65,12 +65,126 @@ body {
     width: 100%;
 }
 
+/* Nav City Selector */
+.doseluru-nav-city-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--doseluru-primary);
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--doseluru-text-primary);
+    cursor: pointer;
+    transition: var(--doseluru-transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235D4037' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+}
+
+.doseluru-nav-city-select:hover {
+    background-color: var(--doseluru-background);
+}
+
+.doseluru-nav-city-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.3);
+}
+
+.doseluru-mobile-city-select {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--doseluru-primary);
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--doseluru-text-primary);
+    cursor: pointer;
+}
+
 /* Hero Section */
 .doseluru-hero {
     background: linear-gradient(135deg, var(--doseluru-background), #FFFFFF);
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
+    min-height: auto;
+    position: relative;
+}
+
+.doseluru-hero-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.deco-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--doseluru-primary);
+    top: -100px;
+    right: -100px;
+}
+
+.deco-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--doseluru-accent);
+    bottom: 50px;
+    left: -50px;
+}
+
+.deco-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--doseluru-secondary);
+    top: 50%;
+    right: 20%;
+}
+
+.deco-dosa {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.15;
+    animation: floatSlow 6s ease-in-out infinite;
+}
+
+.deco-4 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.deco-5 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.deco-6 {
+    bottom: 20%;
+    left: 30%;
+    animation-delay: 4s;
+}
+
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.doseluru-gradient-text {
+    background: linear-gradient(135deg, var(--doseluru-primary), var(--doseluru-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .doseluru-hero-title {
@@ -85,6 +199,73 @@ body {
     color: #666;
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.8;
+}
+
+@media (min-width: 1024px) {
+    .doseluru-hero-subtitle {
+        margin: 0;
+    }
+}
+
+/* Hero Visual */
+.doseluru-hero-visual {
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-main-image {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-main-image::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    background: var(--doseluru-primary);
+    border-radius: 2rem;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.hero-floating-card {
+    position: absolute;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: floatCard 4s ease-in-out infinite;
+    z-index: 10;
+}
+
+.hero-floating-card.card-1 {
+    top: 10%;
+    right: -10%;
+    animation-delay: 0s;
+}
+
+.hero-floating-card.card-2 {
+    bottom: 30%;
+    left: -5%;
+    animation-delay: 1.5s;
+}
+
+.hero-floating-card.card-3 {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 3s;
+}
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* Cards */
@@ -127,6 +308,17 @@ body {
 
 .doseluru-star {
     color: var(--doseluru-primary);
+    font-size: 1.2rem;
+}
+
+.doseluru-star-half {
+    color: var(--doseluru-accent);
+    font-size: 1.2rem;
+}
+
+.doseluru-star-empty {
+    color: #ddd;
+    font-size: 1.2rem;
 }
 
 /* Buttons */
@@ -159,6 +351,131 @@ body {
     transform: translateY(-2px);
 }
 
+/* Badges */
+.doseluru-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.doseluru-badge-heritage {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.doseluru-badge-open {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.doseluru-amenity-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background-color: #F3F4F6;
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    color: #4B5563;
+    text-transform: capitalize;
+}
+
+.doseluru-dietary-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background-color: #ECFDF5;
+    border: 1px solid #10B981;
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    color: #065F46;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Form Elements */
+.doseluru-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.875rem;
+    transition: var(--doseluru-transition);
+    cursor: pointer;
+}
+
+.doseluru-select:hover {
+    border-color: var(--doseluru-primary);
+}
+
+.doseluru-select:focus {
+    outline: none;
+    border-color: var(--doseluru-primary);
+    box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.1);
+}
+
+.doseluru-checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: var(--doseluru-transition);
+    font-size: 0.875rem;
+}
+
+.doseluru-checkbox-label:hover {
+    background-color: #FFF8E1;
+    border-color: var(--doseluru-primary);
+}
+
+.doseluru-checkbox-label input[type="checkbox"] {
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+}
+
+.doseluru-checkbox-label input[type="checkbox"]:checked {
+    accent-color: var(--doseluru-primary);
+}
+
+.doseluru-button-reset {
+    padding: 0.5rem 1.5rem;
+    background-color: #F3F4F6;
+    color: var(--doseluru-text-primary);
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--doseluru-transition);
+}
+
+.doseluru-button-reset:hover {
+    background-color: #E5E7EB;
+    border-color: #9CA3AF;
+}
+
+/* Filters Section */
+.doseluru-filters {
+    background-color: #F9FAFB;
+}
+
+/* Section Titles */
+.doseluru-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--doseluru-text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.doseluru-text-primary {
+    color: var(--doseluru-primary);
+}
+
 /* Footer */
 .doseluru-footer {
     background-color: var(--doseluru-secondary);
@@ -167,15 +484,359 @@ body {
     margin-top: 4rem;
 }
 
+.doseluru-social-link {
+    color: white;
+    transition: var(--doseluru-transition);
+}
+
+.doseluru-social-link:hover {
+    color: var(--doseluru-primary);
+}
+
+/* City Selector */
+.doseluru-city-selector {
+    background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 100%);
+    padding: 2rem 0;
+}
+
+.doseluru-city-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.doseluru-city-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.doseluru-city-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--doseluru-primary), var(--doseluru-accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.doseluru-city-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--doseluru-primary);
+}
+
+.doseluru-city-card:hover::before {
+    transform: scaleX(1);
+}
+
+.doseluru-city-card.active {
+    border-color: var(--doseluru-primary);
+    background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%);
+    box-shadow: 0 8px 16px rgba(244, 208, 63, 0.3);
+}
+
+.doseluru-city-card.active::before {
+    transform: scaleX(1);
+}
+
+.doseluru-city-card .city-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.doseluru-city-card .city-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--doseluru-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.doseluru-city-card .city-tagline {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+    min-height: 2.5rem;
+}
+
+.doseluru-city-card .city-stats {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.doseluru-city-card .stat-badge {
+    background-color: #F3F4F6;
+    color: #4B5563;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.doseluru-city-card.active .stat-badge {
+    background-color: var(--doseluru-primary);
+    color: var(--doseluru-text-primary);
+}
+
+/* City Info Banner */
+.doseluru-city-banner {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF8E1 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid var(--doseluru-primary);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.doseluru-city-banner .banner-content {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.doseluru-city-banner .banner-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+.doseluru-city-banner .banner-text h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--doseluru-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.doseluru-city-banner .banner-text p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.doseluru-city-banner .banner-famous-for {
+    color: var(--doseluru-text-primary);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.doseluru-city-banner .banner-famous-for span {
+    color: #666;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .doseluru-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .doseluru-nav {
         padding: 1rem;
     }
+
+    .doseluru-city-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .doseluru-city-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .doseluru-city-card .city-icon {
+        font-size: 2.5rem;
+    }
+
+    .doseluru-city-card .city-name {
+        font-size: 1.25rem;
+    }
+
+    .doseluru-city-card .city-tagline {
+        font-size: 0.75rem;
+    }
+
+    .doseluru-city-banner .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doseluru-city-banner .banner-icon {
+        font-size: 3rem;
+    }
+
+    .doseluru-city-banner .banner-text h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .doseluru-city-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reviews Section */
+.doseluru-reviews-section {
+    background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+}
+
+.doseluru-review-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: var(--doseluru-transition);
+    border: 1px solid #E5E7EB;
+}
+
+.doseluru-review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--doseluru-primary);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.reviewer-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--doseluru-primary), var(--doseluru-accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--doseluru-text-primary);
+    font-size: 0.875rem;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--doseluru-text-primary);
+    font-size: 0.95rem;
+}
+
+.review-date {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+}
+
+.review-rating {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--doseluru-text-primary);
+    background: #FEF3C7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+.review-restaurant {
+    font-weight: 600;
+    color: var(--doseluru-primary);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.review-text {
+    color: #4B5563;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.review-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.review-tag {
+    background: #F3F4F6;
+    color: #4B5563;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* About Section */
+.doseluru-about-section {
+    background: white;
+}
+
+/* Footer Enhancement */
+.doseluru-footer {
+    background: linear-gradient(135deg, var(--doseluru-secondary) 0%, #6D4C41 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-top: 0;
+}
+
+.doseluru-social-link {
+    color: white;
+    transition: var(--doseluru-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.doseluru-social-link:hover {
+    color: var(--doseluru-primary);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.doseluru-social-link svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Animations */
@@ -186,4 +847,20 @@ body {
 
 [data-aos].aos-animate {
     opacity: 1;
+}
+
+/* Mobile Responsive Additions */
+@media (max-width: 768px) {
+    .doseluru-hero-visual {
+        display: none;
+    }
+
+    .review-header {
+        flex-wrap: wrap;
+    }
+
+    .review-rating {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
 }
